@@ -8,7 +8,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.json("This is a color");
+  res.json("Vibrantt!");
+});
+
+app.get("/ping", (req, res) => {
+  res.status(200).json("Vibrantt to the moon! 🚀");
 });
 
 const getColorRoute = require("./src/routes/getColor");

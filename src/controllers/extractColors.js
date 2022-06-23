@@ -1,5 +1,5 @@
 const ColorThief = require("colorthief");
-
+const rgbHex = require("simple-rgb");
 async function extractColors(req, res) {
   const { image, count, format } = req.body;
   let dominantColor = "";
@@ -17,11 +17,9 @@ async function extractColors(req, res) {
       message: "Image must be in png, jpg or jpeg format",
     });
   } else {
-    await ColorThief.getPalette(image, count || 5).then((palette) => {
+    await ColorThief.getPalette(image, count || 8).then((palette) => {
       palette.forEach((color) => {
-        const hexColor = `#${color[0].toString(16)}${color[1].toString(
-          16
-        )}${color[2].toString(16)}`;
+        const hexColor = rgbHex(color[0], color[1], color[2]).color;
         const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
         if (format === "hex") {
           colorPalette.push(hexColor);
@@ -36,10 +34,8 @@ async function extractColors(req, res) {
     });
 
     await ColorThief.getColor(image).then((color) => {
-      const hexColor = `#${color[0].toString(16)}${color[1].toString(
-        16
-      )}${color[2].toString(16)}`;
-      const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+      const hexColor = rgbHex(color[0], color[1], color[2]).color;
+      const rgbColor = `${color[0]}, ${color[1]}, ${color[2]}`;
       if (format === "hex") {
         dominantColor = hexColor;
       } else if (format === "rgb") {
