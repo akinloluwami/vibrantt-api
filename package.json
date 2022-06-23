@@ -1,0 +1,23 @@
+{
+  "name": "vibrantt",
+  "version": "1.0.0",
+  "main": "color.js",
+  "author": "Akinkunmi",
+  "license": "MIT",
+  "scripts": {
+    "color": "nodemon color.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "colorshades": "^1.1.0",
+    "colorthief": "^2.3.2",
+    "cors": "^2.8.5",
+    "easy-color": "^1.0.4",
+    "express": "^4.18.1",
+    "hex-color-to-color-name": "^1.0.2",
+    "hex-rgb-color-code-converter": "^1.0.2",
+    "nodemon": "^2.0.16",
+    "randomcolor": "^0.6.2",
+    "resolve": "^1.22.0"
+  }
+}
