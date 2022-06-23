@@ -17,12 +17,12 @@ app.get("/ping", (req, res) => {
 
 const getColorRoute = require("./src/routes/getColor");
 const extractColorsRoute = require("./src/routes/extractColors");
-const getRandomColorsRoute = require("./src/routes/getRandomColors");
+const generatePaletteRoute = require("./src/routes/generatePalette");
 const getShadesRoute = require("./src/routes/getShades");
 
 app.use("/getcolor", getColorRoute);
 app.use("/extractcolors", extractColorsRoute);
-app.use("/getpalette", getRandomColorsRoute);
+app.use("/generatepalette", generatePaletteRoute);
 app.use("/getshades", getShadesRoute);
 
 app.listen(2000, () => {
